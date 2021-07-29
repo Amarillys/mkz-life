@@ -6,11 +6,21 @@ import permalinks from '@metalsmith/permalinks'
 import comp from './comp.js'
 import CompData from './comp-data.js'
 
+const generateTree = function (files) {
+  let data = {
+    "tree.html": {}
+  }
+  for (let file in files) {
+    console.log(file)
+  }
+  return data;
+}
+
 const metalsmith = Metalsmith('./')
 .metadata({
   sitename: 'MKZ Life'
 })
-.use(comp('./component', './template', CompData))
+.use(comp('./component', './template', CompData, generateTree))
 .source('./src')
 .destination('./build')
 .clean(true)
