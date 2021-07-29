@@ -1,0 +1,55 @@
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.pink-bg {
+  background-color: var(--var-main-bg);
+}
+
+img {
+  max-width: 100%;
+}
+
+.flex-grow {
+  flex-grow: 2;
+}
+
+.avatar {
+  width: 192px;
+  border-radius: 20px;
+  margin-top: 2rem;
+}
+
+nav li {
+  margin-right: 1.5rem;
+}
+
+nav li, a {
+  cursor: pointer;
+}
+
+@media (min-width: 720px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+footer {
+  justify-content: center;
+}
+
+footer a{
+  margin-right: 2rem;
+}
+
+@media (max-width: 719px) {
+  footer a{
+    margin-right: 1rem;
+  }
+}

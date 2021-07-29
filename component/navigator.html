@@ -1,0 +1,9 @@
+<nav class="pink-bg">
+  <ul class="flex-row">
+    {{#each navItems}}
+      <li onclick="{{this.click}}" class="{{this.class}}">
+        <a href="{{this.target}}">{{this.text}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</nav>
