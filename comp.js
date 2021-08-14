@@ -2,7 +2,7 @@ import { promises } from 'fs';
 import { parse } from 'path';
 import handlebars from 'handlebars';
 
-export default function (compPath, destPath, data, extendFunc) {
+export default function (compPath, destPath, data, extendFunc, compileSonComp) {
   return async function(files, metalsmith, callback) {
     const compFileList = await promises.readdir(compPath);
     let comps = {};
@@ -17,7 +17,7 @@ export default function (compPath, destPath, data, extendFunc) {
 
     if (data) {
       Object.keys(data).forEach(compName => {
-        comps[compName] = handlebars.compile(comps[compName])(data[compName], {noEscape: true})
+        comps[compName] = handlebars.compile(comps[compName], {noEscape: true})(data[compName]);
       })
     }
 
@@ -32,6 +32,13 @@ export default function (compPath, destPath, data, extendFunc) {
         targetText = targetText.replace(regex, `$1\r\n${comps[compFileName]}\r\n$2`)
       });
       if (targetText === oriText) continue;
+      if (compileSonComp) {
+        Object.keys(comps).forEach(compFileName => {
+          const compName = parse(compFileName).name;
+          const regex = new RegExp(`(<!--@${compName}-->)[\\s]*?(<!--@${compName}-end-->)`, 'g');
+          targetText = targetText.replace(regex, `$1\r\n${comps[compFileName]}\r\n$2`)
+        });
+      }
       await promises.writeFile(`${destPath}/${template}`, targetText);
     }
     callback();

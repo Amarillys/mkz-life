@@ -4,6 +4,7 @@ date: 2021-7-13
 layout: note.hbs
 path: kusa-test
 index: 0
+banner: /image/note/210422.jpg
 ---
 
 # 草地氧气充足因何而发生？
