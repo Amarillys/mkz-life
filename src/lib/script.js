@@ -2,7 +2,7 @@ const title = '千代的记事本';
 
 window.renderData = function (target) {
   fetch(target).then(res => res.text()).then(html => {
-    document.querySelector('#year-list').style.display = 'none';
+    document.querySelector('#tree-list').style.display = 'none';
     const tempContainer= document.querySelector('#temp-container');
     tempContainer.innerHTML = html;
     const targetContainer = document.querySelector('#content');
@@ -15,7 +15,7 @@ window.renderData = function (target) {
 
 window.returnHome = function (target) {
   document.querySelector('#content').style.display = 'none';
-  document.querySelector('#year-list').style.display = 'block';
+  document.querySelector('#tree-list').style.display = 'block';
   document.title = title;
   window.history.pushState({}, title, window.location.origin);
 }
@@ -23,3 +23,7 @@ window.returnHome = function (target) {
 window.requestPage = function (url, title) {
 
 };
+
+window.addEventListener('popstate', function () {
+  if (window.location.pathname === '/') window.returnHome();
+})

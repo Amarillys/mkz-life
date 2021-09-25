@@ -8,6 +8,7 @@
   <meta name="description" content="{{ description }}">
   <link rel="stylesheet" href="/lib/light.css">
   <link rel="stylesheet" href="/lib/common.css">
+  <link rel="stylesheet" href="/lib/ui.css">
 </head>
 <body>
   <header>
@@ -27,10 +28,38 @@
 
   <main class="flex-row">
     <div id="left-panel" class="flex-column pink-bg">
-      <ul id="year-list">
-        <!--@tree-->
+        <!--@mini-tree-->
+<div id="tree-list" style="display: none;">
+  <ul>
+    <li class="note-list">
+      <div class="img-container">
+        <img src="/image/note/2021/210422.jpg">
+      </div>
 
-<!--@tree-end-->
+      <article>
+        现在感觉很幸福，但是又感觉这是我的懦弱
+          <a href="/note/2021/life-thought.html" title="活着没什么意义，但是挺有意思" onclick="renderData(this);return false;">Read More</a>
+        </p>
+      </article>
+    </li>
+    <li class="note-list">
+      <div class="img-container">
+        <img src="/image/note/2021/saen.jpg">
+      </div>
+
+      <article>
+        关于构建本站的一些细节，以及metalsmith挺好的
+          <a href="/note/2021/website-metalsmith.html" title="关于构建本站的一些话" onclick="renderData(this);return false;">Read More</a>
+        </p>
+      </article>
+    </li>
+  </ul>
+
+  <div>
+    <span>Load More...</span>
+  </div>
+</div>
+<!--@mini-tree-end-->
       </ul>
       <article id="content" style="display: none;"></article>
     </div>
@@ -42,12 +71,15 @@
     </div>
   </main>
   <script src="lib/script.js"></script>
+  <script>
+    document.querySelector('#tree-list').style.display = 'block';
+  </script>
   <div style="display: none;" id="temp-container"></div>
 
   
   <!--@footer-->
 <footer class="flex-row">
-    <a href="https://flamehaze.moe" target="_blank">FlameHaze</a>
+    <a href="https://nnnewb.github.io/blog/" target="_blank">weakptr's 笔记</a>
     <a href="https://sata-nya.com" target="_blank">Sata-Nya</a>
     <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2021092731号 ©2021</a>
     <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030702004086" target="_blank">粤公网安备 44030702004086号</a>

@@ -13,8 +13,8 @@ export default {
   },
   "footer.html": {
     links: [{
-      "url": "https://flamehaze.moe",
-      "text": "FlameHaze"
+      "url": "https://nnnewb.github.io/blog/",
+      "text": "weakptr's 笔记"
     }, {
       "url": "https://sata-nya.com",
       "text": "Sata-Nya"

@@ -1,19 +1,23 @@
-{{#each notes}}
-  <li class="note-list">
-    <div class="img-container">
-      {{#if this.banner}}
-      <img src="/image/210422.jpg">
-      {{/if}}
-    </div>
+<div id="tree-list" style="display: none;">
+  <ul>
+  {{#each notes}}
+    <li class="note-list">
+      <div class="img-container">
+        {{#if this.banner}}
+        <img src="{{this.banner}}">
+        {{/if}}
+      </div>
 
-    <article>
-      {{this.content}}
-        <a href="{{this.target}}" title="{{this.title}}" onclick="renderData(this);return false;">Read More</a>
-      </p>
-    </article>
-  </li>
-{{/each}}
+      <article>
+        {{this.content}}
+          <a href="{{this.target}}" title="{{this.title}}" onclick="renderData(this);return false;">Read More</a>
+        </p>
+      </article>
+    </li>
+  {{/each}}
+  </ul>
 
-<div>
-  <span>Load More...</span>
+  <div>
+    <span>Load More...</span>
+  </div>
 </div>

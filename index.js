@@ -6,7 +6,6 @@ import markdown from '@metalsmith/markdown'
 import copy from 'metalsmith-copy'
 import comp from './comp.js'
 import CompData from './comp-data.js'
-import marked from 'marked'
 import _ from 'lodash'
 
 const generateTree = function (files) {
@@ -21,7 +20,7 @@ const generateTree = function (files) {
     const note = files[filename]
     note.filename = filename
     note.year = note.date.slice(0, 4)
-    note.content =  marked(note.contents.toString().slice(0, 60))
+    note.content =  note.summary
     fileArr.push(files[filename])
   });
   fileArr = fileArr.filter(note => note.index >= 0).sort((p, q) => p.date + p.index < q.date + q.index);

@@ -1,0 +1,107 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 2.5rem;
+}
+
+nav {
+  padding: 1rem 2.5rem;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 1.3rem;
+}
+
+main {
+  margin: 2.5rem 0;
+}
+
+#left-panel {
+  max-width: 72%;
+  margin-right: 2em;
+  padding: 1.25rem 2.5rem;
+}
+
+.img-container {
+  max-width: 25%;
+  margin: 0 2rem 1.5rem 0;
+}
+
+
+#left-panel h3{
+  margin-top: 0;
+  font-weight: 400;
+}
+
+#tree-list {
+  margin-top: 1.25rem;
+}
+
+#tree-list .img-container img {
+  width: 320px;
+}
+
+#left-panel > .img-container {
+  padding: 1rem;
+}
+
+#left-panel > article {
+  margin: 0 1.5rem 1rem 0;
+}
+
+#year-list {
+  padding: 0;
+}
+
+#year-list img {
+  min-width: 216px;
+}
+
+
+.note-list {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 720px) {  
+  #year-list article {
+    padding: 0 2em;
+  }
+
+  .note-list {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 719px) {
+  #right-panel {
+    display: none;
+  }
+
+  #left-panel {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+article {
+  font-size: 1rem;
+}
+
+article p:first-child {
+  margin-top: 0;
+}
+
+#right-panel {
+  padding: 2em 2.5em;
+}
+
+#right-panel h2 {
+  margin: 0;
+}
