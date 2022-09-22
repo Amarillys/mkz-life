@@ -1,6 +1,6 @@
 ---
 title: 关于构建本站的一些话
-date: 2021-9-23
+date: 2021-09-23
 layout: note.hbs
 path: website-metalsmith
 index: 0

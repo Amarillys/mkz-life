@@ -1,0 +1,34 @@
+{
+  "Year 2022": [
+    {
+      "title": "腾讯QQ用户头像全部默认显示的问题【加载不出来】",
+      "date": "2022-3-7",
+      "summary": "吃好玩好，一路看好",
+      "banner": "/image/note/2022/kudo.jpg",
+      "target": "/note/2022/fuck-qq.html"
+    }
+  ],
+  "Year 2021": [
+    {
+      "title": "从辣可可开始——记深圳博物馆一游",
+      "date": "2021-10-16T00:00:00.000Z",
+      "summary": "吃好玩好，一路看好",
+      "banner": "/image/note/2021/211016.jpg",
+      "target": "/note/2021/shenzhen-museum.html"
+    },
+    {
+      "title": "活着没什么意义，但是挺有意思",
+      "date": "2021-09-25T00:00:00.000Z",
+      "summary": "现在感觉很幸福，但是又感觉这是我的懦弱",
+      "banner": "/image/note/2021/210422.jpg",
+      "target": "/note/2021/life-thought.html"
+    },
+    {
+      "title": "关于构建本站的一些话",
+      "date": "2021-09-23T00:00:00.000Z",
+      "summary": "关于构建本站的一些细节，以及metalsmith挺好的",
+      "banner": "/image/note/2021/saen.jpg",
+      "target": "/note/2021/website-metalsmith.html"
+    }
+  ]
+}

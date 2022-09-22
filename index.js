@@ -4,14 +4,16 @@ import layouts from 'metalsmith-layouts'
 import markdown from '@metalsmith/markdown'
 // import permalinks from '@metalsmith/permalinks'
 import copy from 'metalsmith-copy'
-import comp from './comp.js'
+import comp from './comp-filler.js'
 import CompData from './comp-data.js'
+import DataGenerator from './data-generator.js'
 import _ from 'lodash'
+
+const sourceDir = './src'
 
 const generateTree = function (files) {
   let data = {
-    "tree.html": {},
-    "mini-tree.html": {},
+    "tree.html": {}
   };
   let fileArr = [];
   Object.keys(files).forEach(filename => {
@@ -19,12 +21,10 @@ const generateTree = function (files) {
     if (!filename.includes('.md')) return
     const note = files[filename]
     note.filename = filename
-    note.year = note.date.slice(0, 4)
+    note.year = typeof note.date === 'string' ? note.date.slice(0, 4) : note.date.getFullYear();
     note.content =  note.summary
     fileArr.push(files[filename])
   });
-  fileArr = fileArr.filter(note => note.index >= 0).sort((p, q) => p.date + p.index < q.date + q.index);
-  data["mini-tree.html"].notes = fileArr.slice(0, 3);
 
   const fulltreeArr = _.groupBy(fileArr, 'year');
   data["tree.html"].notes = Object.keys(fulltreeArr).map(year => ({ year, notes: fulltreeArr[year]}))
@@ -35,6 +35,8 @@ const metalsmith = Metalsmith('./')
 .metadata({
   sitename: 'MKZ Life'
 })
+.source(sourceDir)
+.use(DataGenerator(`${sourceDir}/lib/note.json`))
 .use(copy({
   pattern: 'image/*',
   directory: '',
@@ -46,7 +48,6 @@ const metalsmith = Metalsmith('./')
   move: true
 }))
 .use(comp('./component', './template', CompData, generateTree, true))
-.source('./src')
 .destination('./build')
 .clean(true)
 .use(collections({

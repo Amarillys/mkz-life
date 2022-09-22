@@ -16,6 +16,9 @@ export default function (compPath, destPath, data, extendFunc, compileSonComp) {
     }
 
     if (data) {
+      data['home-tree.html'] = metalsmith.yearTree
+
+      handlebars.registerHelper('getYear', function(yearStr) { return yearStr.slice(5) } )
       Object.keys(data).forEach(compName => {
         comps[compName] = handlebars.compile(comps[compName], {noEscape: true})(data[compName]);
       })
@@ -28,8 +31,8 @@ export default function (compPath, destPath, data, extendFunc, compileSonComp) {
       let targetText = oriText;
       Object.keys(comps).forEach(compFileName => {
         const compName = parse(compFileName).name;
-        const regex = new RegExp(`(<!--@${compName}-->)[\\s\\S]*?(<!--@${compName}-end-->)`, 'g');
-        targetText = targetText.replace(regex, `$1\r\n${comps[compFileName]}\r\n$2`)
+        const regex = new RegExp(`(<!--@${compName}-->)(\\r\\n|\\r|\\n)(\\s*?)[\\s\\S]*(<!--@${compName}-end-->)`, 'g');
+        targetText = targetText.replace(regex, `$1$2$3${comps[compFileName]}\r\n$4`)
       });
       if (targetText === oriText) continue;
       if (compileSonComp) {

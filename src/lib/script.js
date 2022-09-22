@@ -15,7 +15,7 @@ window.renderData = function (target) {
 
 window.returnHome = function (target) {
   document.querySelector('#content').style.display = 'none';
-  document.querySelector('#tree-list').style.display = 'block';
+  document.querySelector('#tree-list').style.display = 'flex';
   document.title = title;
   window.history.pushState({}, title, window.location.origin);
 }

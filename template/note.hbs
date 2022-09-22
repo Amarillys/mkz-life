@@ -13,53 +13,76 @@
 <body>
   <header>
     <!--@navigator-->
-<nav class="pink-bg">
-  <ul class="flex-row">
-      <li class="">
-        <a href="/" onclick="returnHome();;return false;">| 记录</a>
-      </li>
-      <li class="mobile-only">
-        <a href="/about.html" onclick="renderData('/about.html');;return false;">| 关于</a>
-      </li>
-  </ul>
-</nav>
+      <nav class="pink-bg">
+        <ul class="flex-row">
+            <li class="">
+              <a href="/" onclick="returnHome();;return false;">| 记录</a>
+            </li>
+            <li class="mobile-only">
+              <a href="/about.html" onclick="renderData('/about.html');;return false;">| 关于</a>
+            </li>
+        </ul>
+      </nav>
 <!--@navigator-end-->
   </header>
 
   <main class="flex-row">
     <div id="left-panel" class="flex-column pink-bg">
-       <!--@mini-tree-->
-<div id="tree-list" style="display: none;">
-  <ul>
-    <li class="note-list">
-      <div class="img-container">
-        <img src="/image/note/2021/210422.jpg">
+       <!--@home-tree-->
+      <div id="tree-list" class="flex-column" style="display: none;">
+          <label for="check-2022" class="toggle-label">Year 2022</label>
+
+          <input type="checkbox" class="toggle-check" id="check-2022" checked="true">
+          <ul class="toggle-content">
+            <li class="note-list">
+              <a href="/note/2022/fuck-qq.html" class="flex-row flex-grow" title="腾讯QQ用户头像全部默认显示的问题【加载不出来】" onclick="renderData(this);return false;">
+                <div class="img-container">
+                  <img src="/image/note/2022/kudo.jpg">
+                </div>
+
+                <span class="note-title">腾讯QQ用户头像全部默认显示的问题【加载不出来】</span>
+              </a>
+            </li>
+          </ul>
+
+          <label for="check-2021" class="toggle-label">Year 2021</label>
+
+          <input type="checkbox" class="toggle-check" id="check-2021" checked="true">
+          <ul class="toggle-content">
+            <li class="note-list">
+              <a href="/note/2021/shenzhen-museum.html" class="flex-row flex-grow" title="从辣可可开始——记深圳博物馆一游" onclick="renderData(this);return false;">
+                <div class="img-container">
+                  <img src="/image/note/2021/211016.jpg">
+                </div>
+
+                <span class="note-title">从辣可可开始——记深圳博物馆一游</span>
+              </a>
+            </li>
+            <li class="note-list">
+              <a href="/note/2021/life-thought.html" class="flex-row flex-grow" title="活着没什么意义，但是挺有意思" onclick="renderData(this);return false;">
+                <div class="img-container">
+                  <img src="/image/note/2021/210422.jpg">
+                </div>
+
+                <span class="note-title">活着没什么意义，但是挺有意思</span>
+              </a>
+            </li>
+            <li class="note-list">
+              <a href="/note/2021/website-metalsmith.html" class="flex-row flex-grow" title="关于构建本站的一些话" onclick="renderData(this);return false;">
+                <div class="img-container">
+                  <img src="/image/note/2021/saen.jpg">
+                </div>
+
+                <span class="note-title">关于构建本站的一些话</span>
+              </a>
+            </li>
+          </ul>
+
+        <div>
+          <span>Load More...</span>
+        </div>
       </div>
-
-      <article>
-        现在感觉很幸福，但是又感觉这是我的懦弱
-          <a href="/note/2021/life-thought.html" title="活着没什么意义，但是挺有意思" onclick="renderData(this);return false;">Read More</a>
-        </p>
-      </article>
-    </li>
-    <li class="note-list">
-      <div class="img-container">
-        <img src="/image/note/2021/saen.jpg">
-      </div>
-
-      <article>
-        关于构建本站的一些细节，以及metalsmith挺好的
-          <a href="/note/2021/website-metalsmith.html" title="关于构建本站的一些话" onclick="renderData(this);return false;">Read More</a>
-        </p>
-      </article>
-    </li>
-  </ul>
-
-  <div>
-    <span>Load More...</span>
-  </div>
-</div>
-<!--@mini-tree-end-->
+<!--@home-tree-end-->
       <article id="content">
         {{{ contents }}}
       </article>
